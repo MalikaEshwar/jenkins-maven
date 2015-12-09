@@ -1,6 +1,10 @@
 <!-- 
 This project was created as a tutorial for mastering Maven tool for Java web Applications
 It was developped and deployed with tomcat as well an with the maven jetty plugin
+@Author: Delveri Munang
+@Project: Mr Munch Restaurant App
+@File : index.jsp
+@Date: Dec 2015
  -->
 
 <!DOCTYPE html> 
