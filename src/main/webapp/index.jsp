@@ -11,7 +11,7 @@ It was developped and deployed with tomcat as well an with the maven jetty plugi
 <html> 
 	<head>
   <meta charset="UTF-8">	
-	<title>Mr Munch</title> 
+	<title>Mr Munch Maven Version</title> 
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	<link rel="stylesheet" href="jquery.mobile.structure-1.0.1.css" />
