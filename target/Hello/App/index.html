@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Apps</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>
+
+ 
+</head>
+<body >
+	<div class="container jumbotron" ng-app="myapp" ng-controller="namectrl">
+		<label>First Name:</label>
+		<input ng-model="firstname" type="text">
+		<label>LastName :</label>
+		<input ng-model="lastname" type="text">
+		<p >{{firstname + " " + lastname}}</p>
+		<p ng-bind="firstname + ' ' + lastname"></p>
+		<button ng-click="fblogin()" class="btn btn-primary"><span class="glyphicon glyphicon-facebook"> </span>Login with Facebook</button>
+
+		<br><h2>Add Meal</h2>
+		<label>Name :</label>
+		<input type="text" ng-model="newmeal"><br>
+		<button class="btn-success glyphicon glyphicon-add" ng-click="add();">Add Meal</button>
+
+		<ul ng-repeat="meal in meals">
+			<span class="glyphicon glyphicon-edit btn-success"></span><li class="btn-primary">{{meal}}</li>
+		</ul>
+		<p>{{message.name}}</p>
+		<p>{{message.title}}</p>
+		<p>{{message.body}}</p>
+		<p>{{message.content}}</p>
+		<label>Message</label>
+		<input type="text" ng-model="msg">
+		<button ng-click="addmessage()">AddMessage</button>
+
+		<br>
+		<h2>Restaurants</h2>
+		<!-- <table style="border:1px solid green">
+
+			<tr class="btn-success" style="border:1px solid green">
+				<td>{{restaurants.Name}}</td>
+				<td>{{restaurants.City}}</td>
+				<td>{{restaurants.Country}}</td>
+				<td>{{restaurants.Email}}</td>
+				<td>{{restaurants.Phone}}</td>
+			</tr>
+		</table> -->
+
+
+	</div>
+	<script type="text/javascript">
+	var app = angular.module("myapp", ['firebase']).controller("namectrl", 
+		function($scope,$firebaseObject,$firebaseAuth){
+			$scope.newmeal = "";
+		$scope.firstname = "Dario";
+		$scope.lastname = "Chick";
+		$scope.meals = ["Eru","Ndole","Rice","Koki","Beans"];
+
+		var ref = new Firebase('https://mrmunch.firebaseio.com/');
+		$scope.message = $firebaseObject(ref);
+
+		var restau = new Firebase('https://myapplists.firebaseio.com/Restaurants');
+		$scope.restaurants = $firebaseObject(restau);
+
+		$scope.addmessage = function(){
+			message.add({who:$scope.msg});
+		}
+
+		$scope.add = function(){
+			$scope.meals.push($scope.newmeal);
+			$scope.newmeal = "";
+		}
+
+
+		$scope.fblogin = function(){
+
+		var auth = $firebaseAuth(ref);
+  // login with Facebook
+  		auth.$authWithOAuthPopup("facebook").then(function(authData) {
+   	 	console.log("Logged in as:", authData.uid);
+ 		}).catch(function(error) {
+    	console.log("Authentication failed:", error);
+  	});
+
+		}
+	
+
+
+	});
+	</script>
+
+</body>
+</html>
+
+</body>
+</html>
