@@ -25,4 +25,11 @@
       </plugin>
     </plugins>
   </build>
+  <distributionManagement>
+    <repository>
+      <id>nexus.repo</id>
+      <name>MyCo Internal Repository</name>
+      <url>http://13.232.198.211:8081/</url>
+    </repository>
+  </distributionManagement>
 </project>
