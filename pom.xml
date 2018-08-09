@@ -15,10 +15,6 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
- <modules> 
-<module>server</module>
-<module>webapp</module>
-</modules>
 <distributionManagement>
 <repository>
 <id>mirrorId</id>
