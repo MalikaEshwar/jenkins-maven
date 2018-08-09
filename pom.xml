@@ -17,7 +17,7 @@
   </dependencies>
 <distributionManagement>
 <repository>
-<id>mirrorId</id>
+<id>nexus.repo</id>
 <name>my_repo</name>
  <url>http://13.232.198.211/repository/nikhil-practice/</url>
 <layout>default</layout>
